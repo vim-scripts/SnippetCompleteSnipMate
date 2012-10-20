@@ -1,0 +1,41 @@
+This is a mirror of http://www.vim.org/scripts/script.php?script_id=4276
+
+DESCRIPTION
+Simple expansions can be done with Vim's built-in abbreviations, but for
+form-like text fragments that contain multiple cursor stops or mirrored
+replacements of typed text, one needs a plugin like the popular snipMate
+(vimscript #2540). As many snippets start simple but are extended later on, it
+is useful to have a completion for both abbreviations and snippets, so that
+you don't need to remember how the text fragment you want to use is defined.
+
+Apart from the integration with abbreviations, this plugin offers the
+following advantages over the CTRL-R <Tab> completion built into snipMate
+itself:
+- Summary rendering of the snippet expansion in the completion popup menu,
+  including the number of lines the snippet expands to and the number of
+  multi-snips alternatives.
+- Preview of the full snippet / all multi-snips (when 'completeopt' contains
+  "preview").
+
+This plugin integrates snipMate snippets into the insert mode completion for
+Vim abbreviations of the SnippetComplete.vim plugin (vimscript #2926), and
+offers an additional completion only for snipMate snippets.
+
+USAGE
+The plugin extends the i_CTRL-X_] completion of Vim insert mode
+abbreviations from the SnippetComplete.vim plugin with snippets from
+snipMate. Just continue using that as before.
+Snippets appear in the completion popup prefixed with "%N", where N is the
+number of lines that the snippet expands to. Multi-snips appear as "M*N",
+where M is the number of alternatives.
+
+Alternatively, this plugin provides an additional CTRL-X % completion solely
+for snipMate snippets, excluding Vim abbreviations.
+
+CTRL-X %                Find matches for snipMate snippets that start with the
+                        text in front of the cursor.
+                        If no matches were found that way, matches anywhere in
+                        the snippet or in the snippet's expanded text will be
+                        shown. So if you can't remember the shortcut, but a
+                        word fragment from the resulting expansion, just try
+                        with that.
